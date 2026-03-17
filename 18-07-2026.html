@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!-- Важно для правильного отображения на мобильных устройствах -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Документ</title>
+    <style>
+        /* Сбрасываем отступы по умолчанию */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100vh; /* Минимальная высота — весь экран */
+            background-color: #f5f5f5; /* Нейтральный фон на случай пустот */
+            display: flex;
+            align-items: center; /* Вертикальное центрирование */
+            justify-content: center; /* Горизонтальное центрирование */
+        }
+
+        /* Контейнер для изображения */
+        .image-container {
+            width: 100%;
+            max-width: 100vh; /* Чтобы на широких экранах не было слишком широко */
+            aspect-ratio: 420 / 800; /* Соотношение сторон вашего изображения (можно уточнить) */
+            margin: 0 auto; /* Центрируем контейнер */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Само изображение */
+        .image-container img {
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* Вписываем изображение целиком, сохраняя пропорции */
+            /* object-fit: cover;  // Если нужно обрезать по краям, но заполнить весь экран */
+            display: block;
+        }
+
+        /* Дополнительная настройка для очень маленьких экранов */
+        @media (max-width: 480px) {
+            .image-container {
+                max-width: 100%; /* На мобильных занимаем всю ширину */
+                aspect-ratio: 420 / 800; /* Сохраняем пропорции */
+            }
+        }
+
+        /* Альтернативный вариант: если нужно строго на весь экран без центрирования */
+        .fullscreen-mode {
+            display: block;
+        }
+
+        .fullscreen-mode .image-container {
+            max-width: none;
+            width: 100vw;
+            height: 100vh;
+            aspect-ratio: auto;
+        }
+
+        .fullscreen-mode img {
+            object-fit: cover; /* или contain — по желанию */
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <!-- Убедитесь, что путь к файлу указан правильно -->
+        <img src="image001.png" alt="Изображение документа">
+    </div>
+</body>
+
+</html>
